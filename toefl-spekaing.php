@@ -46,6 +46,15 @@ function toefl_speaking_cpt() {
 add_action( 'init', 'toefl_speaking_cpt' );
 
 
+// Enqueue styles and scripts
+function toefl_speaking_cpt_scripts() {
+    wp_enqueue_style( 'toefl-speaking-cpt-style', plugins_url( 'assets/css/toefl_speaking.css', __FILE__ ), array(), '1.0.0' );
+    wp_enqueue_script( 'toefl-speaking-cpt-script', plugins_url( 'assets/js/toefl_speaking.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
+}
+add_action( 'wp_enqueue_scripts', 'toefl_speaking_cpt_scripts' );
+
+
+
 // Register the custom taxonomies:
 
 function toefl_speaking_taxonomies() {
